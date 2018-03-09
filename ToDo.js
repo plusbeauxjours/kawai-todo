@@ -10,7 +10,7 @@ import {
 
 const { width, height } = Dimensions.get('window')
 
-export default class ToDo extends Component{
+export default class ToDo extends Component {
     state = {
         isEditing: false,
         isCompleted: false,

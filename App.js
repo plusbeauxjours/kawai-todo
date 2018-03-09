@@ -9,8 +9,9 @@ import {
   Platform,
   ScrollView
 } from "react-native";
-import { AppLoading } from 'expo';
+import { AppLoading } from "expo";
 import ToDo from './ToDo';
+import uuidv1 from 'uuid/v1';
 
 const { height, width } = Dimensions.get('window');
 
@@ -19,14 +20,14 @@ export default class App extends React.Component {
     newToDo: '',
     loadedToDos: false
   };
+  componentDidMount = () => {
+    this._loadToDos();
+  };
   render() {
     const { newToDo, loadedToDos } = this.state;
     if(!loadedToDos){
       return <AppLoading />;
-    }
-    componentDidMount = () => {
-      this._loadToDos();
-    }
+    };
     return (
       <View style={styles.container}>
         <StatusBar barStyle='light-content' />
@@ -40,6 +41,7 @@ export default class App extends React.Component {
             placeholderTextColor={'#999'}
             returnKeyType={'done'}
             autoCorrect={false}
+            onSubmitEditing={this._addToDo}
           />
           <ScrollView contentContainerStyle={styles.toDos}>
             <ToDo text={'Hello Im a todo'} />
@@ -54,7 +56,34 @@ export default class App extends React.Component {
     })
   }
   _loadToDos = () => {
-    loadedToDos: true
+    this.setState({
+      loadedToDos: true
+    })
+  }
+  _addToDo = () => {
+    const { newToDo } = this.state;
+    if(newToDo !== ''){
+      this.setState(prevState => {
+        const ID = uuidv1();
+        const newToDoObject = {
+          [ID]: {
+            id: ID,
+            isCompleted: false,
+            text: newToDo,
+            createAt: Date.now()
+          }
+        };
+        const newState = {
+          ...prevState,
+          newToDo: '',
+          toDos: {
+            ...prevState.toDos,
+            ...newToDoObject
+          }
+        }
+        return { ...newState };
+      });
+    } 
   }
 }
 

@@ -33,13 +33,13 @@ export default class ToDo extends Component{
                     {isEditing ? (
                         <TextInput 
                             style={[
-                                styles.input, 
                                 styles.text, 
+                                styles.input, 
                                 isCompleted ? styles.completedText : styles.uncompletedText
                             ]} 
                             value={toDoValue}
                             multiline={true}
-                            onChangeText={this._controlInput}
+                            onChangeText={this._controllInput}
                             returnKeyType={'done'}
                             onBlur={this._finishEditing}
                         />
@@ -99,7 +99,7 @@ export default class ToDo extends Component{
             isEditing: false
         });
     };
-    _controlInput = text => {
+    _controllInput = text => {
         this.setState({
             toDoValue: text
         });
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: StyleSheet.hairlineWidth,
         flexDirection: "row",
         alignItems: "center",
-        justifyContent: 'space-between'
+        justifyContent: "space-between"
     },
     circle: {
         width: 30,
@@ -143,19 +143,19 @@ const styles = StyleSheet.create({
     column: {
         flexDirection: 'row',
         alignItems: 'center',
-        width: width / 2,
-        justifyContent: 'space-between'
+        width: width / 2
     },
     actions: {
         flexDirection: 'row'
     },
     actionContainer: {
         marginVertical: 10,
-        marginHorizontal: 10,
+        marginHorizontal: 10
         
     },
     input: {
+        width: width / 2,
         marginVertical: 15,
-        width: width / 2
+        paddingBottom: 5
     }
 });

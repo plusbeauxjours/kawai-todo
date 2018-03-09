@@ -68,9 +68,9 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     ...Platform.select({
-      ios:{
-        shadowColor: 'rgb(50, 50, 50)',
-        shadowOpacity: 0.5, 
+      ios: {
+        shadowColor: "rgb(50, 50, 50)",
+        shadowOpacity: 0.5,
         shadowRadius: 5,
         shadowOffset: {
           height: -1,
@@ -84,11 +84,11 @@ const styles = StyleSheet.create({
   },
   input: {
     padding: 20,
-    borderBottomColor: '#bbb',
+    borderBottomColor: "#bbb",
     borderBottomWidth: 1,
     fontSize: 25
   },
   toDos: {
-    alignItems: 'center'
+    alignItems: "center"
   }
 });

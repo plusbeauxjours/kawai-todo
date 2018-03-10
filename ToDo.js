@@ -13,11 +13,11 @@ const { width, height } = Dimensions.get('window')
 export default class ToDo extends Component {
     state = {
         isEditing: false,
-        isCompleted: false,
-        toDoValue: ''
+        toDoValue: '',
+        isCompleted: false
     }
     render(){
-        const { isCompleted, isEditing, toDoValue } = this.state;
+        const { isEditing, toDoValue, isCompleted } = this.state;
         const { text } = this.props;
         return (
             <View style={styles.container}>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
         height: 30,
         borderRadius: 15,
         borderWidth: 3,
-        marginRight: 20,
+        marginRight: 20
     },
     completedCircle: {
         borderColor: "#bbb"

@@ -18,7 +18,8 @@ const { height, width } = Dimensions.get('window');
 export default class App extends React.Component {
   state = {
     newToDo: '',
-    loadedToDos: false
+    loadedToDos: false,
+    toDos: {}
   };
   componentDidMount = () => {
     this._loadToDos();
@@ -27,7 +28,7 @@ export default class App extends React.Component {
     const { newToDo, loadedToDos } = this.state;
     if(!loadedToDos){
       return <AppLoading />;
-    };
+    }
     return (
       <View style={styles.container}>
         <StatusBar barStyle='light-content' />

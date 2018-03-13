@@ -32,7 +32,7 @@ export default class App extends React.Component {
     }
     return (
       <View style={styles.container}>
-        <StatusBar barStyle='light-content' />
+        <StatusBar barStyle="light-content" />
         <Text style={styles.title}>Kawai To do</Text>
         <View style={styles.card}>
           <TextInput 
@@ -40,14 +40,20 @@ export default class App extends React.Component {
             placeholder={"New To Do"} 
             value={newToDo} 
             onChangeText={this._controlNewToDo} 
-            placeholderTextColor={'#999'}
-            returnKeyType={'done'}
-            autoCorrect={false}
-            onSubmitEditing={this._addToDo}
+            placeholderTextColor={"#999"} 
+            returnKeyType={"done"} 
+            autoCorrect={false} 
+            onSubmitEditing={this._addToDo} 
           />
           <ScrollView contentContainerStyle={styles.toDos}>
             {Object.values(toDos).map(toDo => (
-              <ToDo key={toDo.id} {...toDo} deleteToDo={this._deleteToDo} />
+              <ToDo
+                key={toDo.id}
+                deleteToDo={this._deleteToDo}
+                uncompleteToDo={this._uncompleteToDo}
+                completeToDo={this._completeToDo}
+                {...toDo}
+              />
             ))}
           </ScrollView>
         </View>
@@ -57,7 +63,7 @@ export default class App extends React.Component {
   _controlNewToDo = text => {
     this.setState({
       newToDo: text
-    })
+    });
   }
   _loadToDos = () => {
     this.setState({
@@ -97,7 +103,37 @@ export default class App extends React.Component {
         ...prevState,
         ...this._loadToDos
       };
-      return {...newState};
+      return { ...newState };
+    });
+  };
+  _uncompleteToDo = id => {
+    this.setState(prevState => {
+      const newState = {
+        ...prevState,
+        toDos: {
+          ...prevState.toDos,
+          [id]: {
+            ...prevState.toDos[id],
+            isCompleted: false
+          }
+        }
+      }
+      return { ...newState }
+    })
+  }
+  _completeToDo = id => {
+    this.setState(prevState => {
+      const newState = {
+        ...prevState,
+        toDos: {
+          ...prevState.toDos,
+          [id]: {
+            ...prevState.toDos[id],
+            isCompleted: true
+          }
+        }
+      }
+      return { ...newState }
     })
   }
 }

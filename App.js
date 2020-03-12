@@ -27,6 +27,7 @@ export default class App extends React.Component {
   };
   render() {
     const { newToDo, loadedToDos, toDos } = this.state;
+    const toDosList = Object.values(toDos||[])
     if(!loadedToDos){
       return <AppLoading />;
     }
@@ -46,7 +47,7 @@ export default class App extends React.Component {
             onSubmitEditing={this._addToDo} 
           />
           <ScrollView contentContainerStyle={styles.toDos}>
-            {Object.values(toDos)
+            {toDosList&&toDosList
               .reverse()
               .map(toDo => (
                 <ToDo

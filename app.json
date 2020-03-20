@@ -3,9 +3,9 @@
     "packagerOpts": {
       "nonPersistent": false
     },
-    "name": "kawai-todo",
+    "name": "kokoa-todo",
     "description": "This project is really great.",
-    "slug": "kawai-todo",
+    "slug": "kokoa-todo",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android"],
@@ -23,7 +23,7 @@
     },
     "android": {
       "versionCode": 1,
-      "package": "kawaitodo.plusbeauxjours",
+      "package": "kokoatodo.plusbeauxjours",
       "permissions": [
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",

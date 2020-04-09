@@ -34,7 +34,7 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
-        <Text style={styles.title}>Kokoa To do</Text>
+        <Text style={styles.title}>Kitty To do</Text>
         <View style={styles.card}>
           <TextInput
             style={styles.input}

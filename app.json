@@ -3,9 +3,9 @@
     "packagerOpts": {
       "nonPersistent": false
     },
-    "name": "kokoa-todo",
+    "name": "kitty-todo",
     "description": "This project is really great.",
-    "slug": "kokoa-todo",
+    "slug": "kitty-todo",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android"],
@@ -19,11 +19,11 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "kawaitodo.plusbeauxjours"
+      "bundleIdentifier": "kittytodo.plusbeauxjours"
     },
     "android": {
       "versionCode": 1,
-      "package": "kokoatodo.plusbeauxjours",
+      "package": "kittytodo.plusbeauxjours",
       "permissions": [
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION",
